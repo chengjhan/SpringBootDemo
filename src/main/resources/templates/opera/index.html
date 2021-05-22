@@ -11,11 +11,13 @@
 			<th>歌劇名稱</th>
 			<th>年代</th>
 			<th>作者</th>
+			<th />
 		</tr>
 		<tr th:each="opera: ${operaList}">
 			<td th:text="${opera.title}" />
 			<td th:text="${opera.year}" />
 			<td th:text="${opera.composer}" />
+			<td><a th:href="@{/opera/detail/{id}(id=${opera.operaId})}">Detail</a></td>
 		</tr>
 	</table>
 	<a th:href="@{/}">Home</a>

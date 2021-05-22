@@ -8,4 +8,6 @@ public interface OperaService {
 
 	List<Opera> list();
 
+	Opera findById(Integer id);
+
 }

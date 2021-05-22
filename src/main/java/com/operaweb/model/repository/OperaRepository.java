@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.operaweb.model.entity.Opera;
 
 @Repository
-public interface OperaRepository extends JpaRepository<Opera, String> {
+public interface OperaRepository extends JpaRepository<Opera, Integer> {
 
 }

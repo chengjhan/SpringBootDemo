@@ -21,4 +21,10 @@ public class OperaServiceImpl implements OperaService {
 		return operaRepository.findAll();
 	}
 
+	@Override
+	public Opera findById(Integer id) {
+
+		return operaRepository.findById(id).orElse(new Opera());
+	}
+
 }
