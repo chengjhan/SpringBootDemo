@@ -51,4 +51,20 @@ public class OperaController {
 		return "redirect:/opera";
 	}
 
+	@GetMapping(value = "/edit/{id}")
+	public String edit(@PathVariable(value = "id") Integer id, Model model) {
+
+		model.addAttribute("opera", operaService.findById(id));
+
+		return "opera/edit";
+	}
+
+	@PostMapping(value = "/edit.do")
+	public String editAction(@ModelAttribute(value = "opera") Opera opera) {
+
+		operaService.create(opera);
+
+		return "redirect:/opera";
+	}
+
 }

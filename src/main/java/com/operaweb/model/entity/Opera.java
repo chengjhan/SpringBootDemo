@@ -18,13 +18,13 @@ public class Opera {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "OperaID")
+	@Column(name = "operaid")
 	private Integer operaId;
-	@Column(name = "Title")
+	@Column(name = "title")
 	private String title;
-	@Column(name = "Year")
+	@Column(name = "year")
 	private Integer year;
-	@Column(name = "Composer")
+	@Column(name = "composer")
 	private String composer;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "opera")

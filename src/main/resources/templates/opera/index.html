@@ -13,12 +13,14 @@
 			<th>年代</th>
 			<th>作者</th>
 			<th />
+			<th />
 		</tr>
 		<tr th:each="opera: ${operaList}">
 			<td th:text="${opera.title}" />
 			<td th:text="${opera.year}" />
 			<td th:text="${opera.composer}" />
 			<td><a th:href="@{/opera/detail/{id}(id=${opera.operaId})}">Detail</a></td>
+			<td><a th:href="@{/opera/edit/{id}(id=${opera.operaId})}">Edit</a></td>
 		</tr>
 	</table>
 	<p><a th:href="@{/}">Home</a></p>

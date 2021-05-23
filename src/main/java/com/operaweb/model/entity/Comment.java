@@ -14,21 +14,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Comments")
+@Table(name = "comments")
 public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CommentId")
+	@Column(name = "commentid")
 	private Integer commentId;
-	@Column(name = "UserName")
+	@Column(name = "username")
 	private String userName;
-	@Column(name = "UserComment")
+	@Column(name = "usercomment")
 	private String userComment;
-	@Column(name = "LastModified")
+	@Column(name = "lastmodified")
 	private Date lastModified;
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "OperaID")
+	@JoinColumn(name = "operaid")
 	private Opera opera;
 
 	public Integer getCommentId() {

@@ -37,4 +37,11 @@ public class OperaServiceImpl implements OperaService {
 		return operaRepository.saveAndFlush(opera);
 	}
 
+	@Transactional
+	@Override
+	public Opera edit(Opera opera) {
+
+		return operaRepository.saveAndFlush(opera);
+	}
+
 }

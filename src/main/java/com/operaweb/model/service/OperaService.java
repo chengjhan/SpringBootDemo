@@ -12,4 +12,6 @@ public interface OperaService {
 
 	Opera create(Opera opera);
 
+	Opera edit(Opera opera);
+
 }
