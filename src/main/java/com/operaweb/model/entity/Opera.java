@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Opera {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "OperaID")
 	private Integer operaId;
 	@Column(name = "Title")

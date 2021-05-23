@@ -10,4 +10,6 @@ public interface OperaService {
 
 	Opera findById(Integer id);
 
+	Opera create(Opera opera);
+
 }
