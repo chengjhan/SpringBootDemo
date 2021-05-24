@@ -14,4 +14,6 @@ public interface OperaService {
 
 	Opera edit(Opera opera);
 
+	void delete(Integer id);
+
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Opera Delete</title>
+</head>
+<body>
+	<h1>Opera Delete</h1>
+	<ul th:object="${opera}">
+		<li th:text="'歌劇名稱: ' + *{title}" />
+		<li th:text="'年代: ' + *{year}" />
+		<li th:text="'作者: ' + *{composer}" />
+	</ul>
+	<form th:action="@{/opera/delete.do}" th:object="${opera}" method="post">
+		<div>
+			<input type="hidden" th:field="*{operaId}" />
+		</div>
+		<div>
+			<input type="submit" value="Delete" />
+		</div>
+	</form>
+	<p><a th:href="@{/opera}">Back to List</a></p>
+</body>
+</html>

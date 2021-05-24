@@ -44,4 +44,11 @@ public class OperaServiceImpl implements OperaService {
 		return operaRepository.saveAndFlush(opera);
 	}
 
+	@Transactional
+	@Override
+	public void delete(Integer id) {
+
+		operaRepository.deleteById(id);
+	}
+
 }

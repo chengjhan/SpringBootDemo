@@ -67,4 +67,20 @@ public class OperaController {
 		return "redirect:/opera";
 	}
 
+	@GetMapping(value = "/delete/{id}")
+	public String delete(@PathVariable(value = "id") Integer id, Model model) {
+
+		model.addAttribute("opera", operaService.findById(id));
+
+		return "opera/delete";
+	}
+
+	@PostMapping(value = "/delete.do")
+	public String deleteAction(@ModelAttribute(value = "opera") Opera opera) {
+
+		operaService.delete(opera.getOperaId());
+
+		return "redirect:/opera";
+	}
+
 }
