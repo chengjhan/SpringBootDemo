@@ -83,4 +83,12 @@ public class OperaController {
 		return "redirect:/opera";
 	}
 
+	@GetMapping(value = "/delete2/{id}")
+	public String delete2(@PathVariable(value = "id") Integer id) {
+
+		operaService.delete(id);
+
+		return "redirect:/opera";
+	}
+
 }

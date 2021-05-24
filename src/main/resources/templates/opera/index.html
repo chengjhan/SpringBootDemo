@@ -23,6 +23,7 @@
 			<td><a th:href="@{/opera/detail/{id}(id=${opera.operaId})}">Detail</a></td>
 			<td><a th:href="@{/opera/edit/{id}(id=${opera.operaId})}">Edit</a></td>
 			<td><a th:href="@{/opera/delete/{id}(id=${opera.operaId})}">Delete</a></td>
+			<td><a th:href="@{/opera/delete2/{id}(id=${opera.operaId})}" onclick="return confirm('確定要刪除此筆資料?');">Delete2</a></td>
 		</tr>
 	</table>
 	<p><a th:href="@{/}">Home</a></p>
