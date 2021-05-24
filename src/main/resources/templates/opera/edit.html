@@ -7,7 +7,9 @@
 <body>
 	<h1>Opera Edit</h1>
 	<form th:action="@{/opera/edit.do}" th:object="${opera}" method="post">
-		<input type="hidden" th:field="*{operaId}" />
+		<div>
+			<input type="hidden" th:field="*{operaId}" />
+		</div>
 		<div>
 			<label for="title">歌劇名稱</label>
             <input type="text" id="title" th:field="*{title}" />
