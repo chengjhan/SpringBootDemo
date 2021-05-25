@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.operaweb.model.entity.Opera;
 import com.operaweb.model.service.OperaService;
@@ -20,10 +21,15 @@ public class OperaController {
 	private OperaService operaService;
 
 	@GetMapping()
-	public String index(Model model) {
+	public String index(@RequestParam(value = "q", required = false, defaultValue = "") String q, Model model) {
 
-		model.addAttribute("operaList", operaService.list());
+		if (!"".equals(q)) {
 
+			model.addAttribute("operaList", operaService.search(q));
+		} else {
+
+			model.addAttribute("operaList", operaService.list());
+		}
 		return "opera/index";
 	}
 

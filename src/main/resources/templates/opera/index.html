@@ -7,6 +7,10 @@
 <body>
 	<h1>Opera</h1>
 	<p><a th:href="@{/opera/create}">Create</a></p>
+	<form th:action="@{/opera}" method="get">
+		Opera Title: <input type="text" th:value="${param.q}" name="q" />
+		<input type="submit" value="Search" />
+	</form>
 	<table border="1">
 		<tr>
 			<th>歌劇名稱</th>

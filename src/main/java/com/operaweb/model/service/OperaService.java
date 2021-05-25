@@ -16,4 +16,6 @@ public interface OperaService {
 
 	void delete(Integer id);
 
+	List<Opera> search(String q);
+
 }

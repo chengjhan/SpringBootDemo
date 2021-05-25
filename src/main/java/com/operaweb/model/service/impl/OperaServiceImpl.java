@@ -51,4 +51,11 @@ public class OperaServiceImpl implements OperaService {
 		operaRepository.deleteById(id);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public List<Opera> search(String q) {
+
+		return operaRepository.findByTitleContaining(q);
+	}
+
 }
