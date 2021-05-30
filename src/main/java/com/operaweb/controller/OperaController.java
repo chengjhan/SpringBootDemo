@@ -21,15 +21,13 @@ public class OperaController {
 	private OperaService operaService;
 
 	@GetMapping()
-	public String index(@RequestParam(value = "q", required = false, defaultValue = "") String q, Model model) {
+	public String index(@RequestParam(value = "q", required = false, defaultValue = "") String q,
+			@RequestParam(value = "s", required = false, defaultValue = "") String s, Model model) {
+		
+		model.addAttribute("sTitle", !"title_asc".equals(s) ? "title_asc" : "title_desc");
+		model.addAttribute("sYear", !"year_asc".equals(s) ? "year_asc" : "year_desc");
+		model.addAttribute("operaList", operaService.search(q, s));
 
-		if (!"".equals(q)) {
-
-			model.addAttribute("operaList", operaService.search(q));
-		} else {
-
-			model.addAttribute("operaList", operaService.list());
-		}
 		return "opera/index";
 	}
 

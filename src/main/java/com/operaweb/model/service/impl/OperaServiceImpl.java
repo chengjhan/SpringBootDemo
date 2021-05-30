@@ -58,4 +58,11 @@ public class OperaServiceImpl implements OperaService {
 		return operaRepository.findByTitleContaining(q);
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public List<Opera> search(String q, String s) {
+
+		return operaRepository.findByTitleContainingOrderByTitleOrYear(q, s);
+	}
+
 }

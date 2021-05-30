@@ -18,4 +18,6 @@ public interface OperaService {
 
 	List<Opera> search(String q);
 
+	List<Opera> search(String q, String s);
+
 }
