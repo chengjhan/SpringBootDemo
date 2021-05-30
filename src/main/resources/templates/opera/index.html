@@ -13,8 +13,8 @@
 	</form>
 	<table border="1">
 		<tr>
-			<th><a th:href="@{/opera(s=${sTitle})}">歌劇名稱</a></th>
-			<th><a th:href="@{/opera(s=${sYear})}">年代</a></th>
+			<th><a th:href="@{/opera(q=${param.q},s=${sTitle})}">歌劇名稱</a></th>
+			<th><a th:href="@{/opera(q=${param.q},s=${sYear})}">年代</a></th>
 			<th>作者</th>
 			<th />
 			<th />
