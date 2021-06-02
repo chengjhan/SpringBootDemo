@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Opera Edit</title>
+</head>
+<body>
+	<h1>Opera Edit</h1>
+	<form th:action="@{/opera/edit.do}" th:object="${opera}" method="post">
+		<div>
+			<input type="hidden" th:field="*{operaId}" />
+		</div>
+		<div>
+			<label for="title">歌劇名稱</label>
+            <input type="text" id="title" th:field="*{title}" />
+		</div>
+		<div>
+			<label for="year">年代</label>
+            <input type="text" id="year" th:field="*{year}" />
+		</div>
+		<div>
+			<label for="composer">作者</label>
+            <input type="text" id="composer" th:field="*{composer}" />
+		</div>
+		<div>
+			<input type="submit" value="Save" />
+		</div>
+	</form>
+	<p><a th:href="@{/opera}">Back to List</a></p>
+</body>
+</html>

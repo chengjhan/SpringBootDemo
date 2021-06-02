@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Opera Detail</title>
+</head>
+<body>
+	<h1>Opera Detail</h1>
+	<ul th:object="${opera}">
+		<li th:text="'歌劇名稱: ' + *{title}" />
+		<li th:text="'年代: ' + *{year}" />
+		<li th:text="'作者: ' + *{composer}" />
+	</ul>
+	<p><a th:href="@{/opera}">Back to List</a></p>
+</body>
+</html>
