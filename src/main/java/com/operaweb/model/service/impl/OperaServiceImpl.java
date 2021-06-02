@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.operaweb.model.entity.Opera;
 import com.operaweb.model.repository.OperaRepository;
 import com.operaweb.model.service.OperaService;
+import com.operaweb.model.viewmodel.Pagination;
 
 @Service
 public class OperaServiceImpl implements OperaService {
@@ -63,6 +64,19 @@ public class OperaServiceImpl implements OperaService {
 	public List<Opera> search(String q, String s) {
 
 		return operaRepository.findByTitleContainingOrderByTitleOrYear(q, s);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Pagination<Opera> search(String q, String s, int pageNumber, int pageSize) {
+
+		Pagination<Opera> pagination = new Pagination<Opera>();
+		pagination.setList(operaRepository.findByTitleContainingOrderByTitleOrYearPaging(q, s, pageNumber, pageSize));
+		pagination.setCount(operaRepository.countByTitleContaining(q));
+		pagination.setPageNumber(pageNumber);
+		pagination.setPageSize(pageSize);
+
+		return pagination;
 	}
 
 }

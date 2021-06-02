@@ -21,7 +21,7 @@
 			<th />
 			<th />
 		</tr>
-		<tr th:each="opera : ${operaList}">
+		<tr th:each="opera : ${operaPagination.list}">
 			<td th:text="${opera.title}" />
 			<td th:text="${opera.year}" />
 			<td th:text="${opera.composer}" />
@@ -31,6 +31,10 @@
 			<td><a th:href="@{/opera/delete2/{id}(id=${opera.operaId})}" onclick="return confirm('確定要刪除此筆資料?');">Delete2</a></td>
 		</tr>
 	</table>
+	<a th:if="${operaPagination.hasPrevious()}" th:href="@{/opera(q=${param.q},s=${param.s},p=${operaPagination.pageNumber - 1})}">上一頁</a>
+	<span th:unless="${operaPagination.hasPrevious}">上一頁</span>
+	<a th:if="${operaPagination.hasNext()}" th:href="@{/opera(q=${param.q},s=${param.s},p=${operaPagination.pageNumber + 1})}">下一頁</a>
+	<span th:unless="${operaPagination.hasNext}">下一頁</span>
 	<p><a th:href="@{/}">Home</a></p>
 </body>
 </html>

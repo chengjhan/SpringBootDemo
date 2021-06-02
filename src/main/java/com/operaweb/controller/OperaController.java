@@ -22,11 +22,15 @@ public class OperaController {
 
 	@GetMapping()
 	public String index(@RequestParam(value = "q", required = false, defaultValue = "") String q,
-			@RequestParam(value = "s", required = false, defaultValue = "") String s, Model model) {
-		
+			@RequestParam(value = "s", required = false, defaultValue = "") String s,
+			@RequestParam(value = "p", required = false, defaultValue = "1") String p, Model model) {
+
+		int pageNumber = Integer.parseInt(p);
+		int pageSize = 10;
+
 		model.addAttribute("sTitle", !"title_asc".equals(s) ? "title_asc" : "title_desc");
 		model.addAttribute("sYear", !"year_asc".equals(s) ? "year_asc" : "year_desc");
-		model.addAttribute("operaList", operaService.search(q, s));
+		model.addAttribute("operaPagination", operaService.search(q, s, pageNumber, pageSize));
 
 		return "opera/index";
 	}
