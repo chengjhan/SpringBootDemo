@@ -1,6 +1,6 @@
 package com.operaweb.model.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +29,8 @@ public class Opera {
 	private String composer;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "opera")
-	private Set<Comment> comments;
+	@OrderBy(value = "commentId ASC")
+	private List<Comment> comments;
 
 	public Integer getOperaId() {
 		return operaId;
@@ -62,11 +64,11 @@ public class Opera {
 		this.composer = composer;
 	}
 
-	public Set<Comment> getComments() {
+	public List<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(Set<Comment> comments) {
+	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
 

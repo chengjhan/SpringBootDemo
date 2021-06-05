@@ -11,6 +11,11 @@
 		<li th:text="'年代: ' + *{year}" />
 		<li th:text="'作者: ' + *{composer}" />
 	</ul>
+	<hr />
+	<h3>User Comments</h3>
+	<div th:each="comment : ${opera.comments}">
+		<span th:text="${comment.userName} + ' : ' + ${comment.userComment} + ' - ' + ${#dates.format(comment.lastModified, 'yyyy/MM/dd')}" />
+	</div>
 	<p><a th:href="@{/opera}">Back to List</a></p>
 </body>
 </html>
