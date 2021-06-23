@@ -9,12 +9,16 @@ public class Pagination<T> {
 	private int pageNumber;
 	private int pageSize;
 
+	public int getPageCount() {
+		return (int) Math.ceil(count / (double) pageSize);
+	}
+
 	public boolean hasPrevious() {
 		return pageNumber > 1;
 	}
 
 	public boolean hasNext() {
-		return pageNumber < (int) Math.ceil(count / (double) pageSize);
+		return pageNumber < getPageCount();
 	}
 
 	public List<T> getList() {
